@@ -52,7 +52,7 @@ cache_expiry = None
 def fetch_view_data(limit: int):
     """Pull fresh data from the MySQL view."""
     with engine.connect() as conn:
-        q = text("SELECT * FROM VORP_Historical LIMIT :limit")
+        q = text("SELECT * FROM VORP_Latest LIMIT :limit")
         result = conn.execute(q, {"limit": limit})
         return [dict(r._mapping) for r in result]
 
